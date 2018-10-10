@@ -4,12 +4,12 @@ var app=express();
 app.set('view engine','ejs')
 
 ////app.get act as middleware
-
+const port = process.env.PORT || 3400
 app.use(express.static(__dirname + '/public')); /////dirname give path till public
 
-app.use((req,res,next)=>{
-    res.render('maintenance.ejs');
-});
+// app.use((req,res,next)=>{
+//     res.render('maintenance.ejs');
+// });
 
 
 app.use((req,res,next)=>{
@@ -43,6 +43,7 @@ app.get('/user',(req,res,next)=>{                             ///// '/' denotes 
 })
 
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log('server started...check your website at localhost:3000')
 });
+
